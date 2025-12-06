@@ -1,11 +1,12 @@
-name: 'gh-release-manager'
-description: 'Automatically update version file based on GitHub release tag'
+name: 'GH Release Sync'
+description: 'Automatically sync your new GitHub release version with your project'
+branding:
+    icon: 'at-sign'
+    color: 'blue'
 inputs:
-  lang:
-    description: 'Language of the project (e.g., rust, js, etc.)'
-    required: true
+    lang:
+        description: 'Language of the project (e.g., rust, js, etc.)'
+        required: true
 runs:
-  using: 'docker'
-  image: 'docker://ghcr.io/chrisllontop/gh-release-manager:v1'
-  env:
-    INPUT_LANG: ${{ inputs.lang }}
+    using: 'node20'
+    main: 'src/index.js'
